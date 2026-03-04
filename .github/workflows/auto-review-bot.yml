@@ -24,7 +24,7 @@ jobs:
 
       - name: Auto Review Bot
         id: auto-review-bot
-        uses: dionysuzx/eip-review-bot@fix/asset-only-pr-automerge
+        uses: dionysuzx/eip-review-bot@dist-unfixed
         continue-on-error: true
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
