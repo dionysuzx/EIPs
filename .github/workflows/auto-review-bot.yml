@@ -4,6 +4,12 @@ on:
       - Auto Review Bot Trigger
     types:
       - completed
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull Request Number
+        type: string
+        required: true
 
 name: Auto Review Bot
 jobs:
@@ -12,21 +18,23 @@ jobs:
     name: Run
     steps:
       - name: Fetch PR Number
+        if: github.event_name == 'workflow_run'
         uses: dawidd6/action-download-artifact@246dbf436b23d7c49e21a7ab8204ca9ecd1fe615
         with:
           name: pr-number
           workflow: auto-review-trigger.yml
           run_id: ${{ github.event.workflow_run.id }}
 
-      - name: Save PR Number
-        id: save-pr-number
+      - name: Save PR Number from artifact
+        if: github.event_name == 'workflow_run'
+        id: save-pr-artifact
         run: echo "pr=$(cat pr-number.txt)" >> $GITHUB_OUTPUT
 
       - name: Auto Review Bot
         id: auto-review-bot
-        uses: ethereum/eip-review-bot@dist
+        uses: dionysuzx/eip-review-bot@dist
         continue-on-error: true
         with:
           token: ${{ secrets.TOKEN }}
           config: config/eip-editors.yml
-          pr_number: ${{ steps.save-pr-number.outputs.pr }}
+          pr_number: ${{ steps.save-pr-artifact.outputs.pr || inputs.pr_number }}

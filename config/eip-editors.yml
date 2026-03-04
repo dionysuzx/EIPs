@@ -1,36 +1,21 @@
 governance:
-  - lightclient
-  - SamWilsn
-  - xinbenlv
-  - g11tech
-  - jochem-brouwer
+  - dionysuzx
+  - mayushii-nyan
 core:
-  - lightclient
-  - SamWilsn
-  - g11tech
-  - jochem-brouwer
+  - dionysuzx
+  - mayushii-nyan
 erc:
-  - SamWilsn
-  - xinbenlv
+  - dionysuzx
+  - mayushii-nyan
 networking:
-  - lightclient
-  - SamWilsn
-  - g11tech
-  - jochem-brouwer
+  - dionysuzx
+  - mayushii-nyan
 interface:
-  - lightclient
-  - SamWilsn
-  - g11tech
-  - jochem-brouwer
+  - dionysuzx
+  - mayushii-nyan
 meta:
-  - lightclient
-  - SamWilsn
-  - xinbenlv
-  - g11tech
-  - jochem-brouwer
+  - dionysuzx
+  - mayushii-nyan
 informational:
-  - lightclient
-  - SamWilsn
-  - xinbenlv
-  - g11tech
-  - jochem-brouwer
+  - dionysuzx
+  - mayushii-nyan
